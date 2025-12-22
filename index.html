@@ -3,54 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dhivya P | React Developer</title>
+    <title>Dhivya P | Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
-        <div class="logo">DP</div>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div class="logo">DHIVYA<span>.P</span></div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+        </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Hi, I'm <span class="highlight">Dhivya P</span></h1>
-            <p>Passionate Junior React Developer based in Trichy.</p>
-            <div class="cta-group">
-                <button class="primary-btn">View Projects</button>
-                <button class="secondary-btn">Download CV</button>
+    <main class="hero">
+        <div class="hero-text">
+            <span class="badge">Junior React Developer</span>
+            <h1>Building <span class="gradient-text">Scalable</span> <br> Web Applications</h1>
+            <p>I specialize in React.js, Node.js, and seamless API integrations. Currently making an impact at PSDigitie LLP, Trichy.</p>
+            <div class="btn-container">
+                <a href="mailto:your-email@gmail.com" class="main-btn">Hire Me</a>
+                <a href="#experience" class="sec-btn">View My Work</a>
             </div>
         </div>
 
-        <div class="three-d-container">
+        <div class="wrapper-3d">
             <div class="card-3d">
-                <div class="card-front">
-                    <h3>PSDigitie LLP</h3>
-                    <p>1+ Year Experience</p>
-                    <div class="tech-stack">
-                        <span>React.js</span>
-                        <span>Node.js</span>
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h2>Experience</h2>
+                        <div class="company">PSDigitie LLP</div>
+                        <p>1+ Year Experience</p>
+                    </div>
+                    <div class="card-back">
+                        <h2>Education</h2>
+                        <p>BCA (2021-2024)</p>
+                        <p>MCA (2024-2026)</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
-    <section id="about" class="info-section">
-        <div class="grid">
-            <div class="info-box">
-                <h2>Experience</h2>
-                <p>Currently working at <strong>PSDigitie LLP, Trichy</strong>. I specialize in integrating APIs into frontend applications and building user-friendly interfaces.</p>
-            </div>
-            <div class="info-box">
-                <h2>Education</h2>
-                <p><strong>BCA:</strong> 2021 - 2024</p>
-                <p><strong>MCA:</strong> 2024 - 2026 (Pursuing - Irregular Mode)</p>
-            </div>
+    <section id="skills" class="skills-section">
+        <h2>Technical Arsenal</h2>
+        <div class="skill-grid">
+            <div class="skill-item">React.js</div>
+            <div class="skill-item">Node.js</div>
+            <div class="skill-item">JavaScript</div>
+            <div class="skill-item">HTML/CSS</div>
+            <div class="skill-item">React Native</div>
+            <div class="skill-item">API Integration</div>
         </div>
     </section>
 </body>
