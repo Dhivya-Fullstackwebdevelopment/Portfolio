@@ -3,28 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dhivya P | Portfolio</title>
+    <title>Dhivya P | React Developer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="portfolio-card">
-            <div class="side front">
-                <h1>Dhivya P</h1>
-                <p class="subtitle">Junior React Developer</p>
-                <div class="badge">1+ Year Experience</div>
-            </div>
-            
-            <div class="side back">
-                <h3>About Me</h3>
-                <p>Currently at <strong>PSDigitie LLP</strong>. Specialized in React.js, Node.js, and API Integration.</p>
-                <p>BCA Graduate | MCA (2024-2026)</p>
-                <div class="skills">
-                    <span>React</span> <span>Node</span> <span>JS</span> <span>React Native</span>
-                </div>
-                <button class="contact-btn">Let's Talk</button>
+    <nav>
+        <div class="logo">DP</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm <span class="highlight">Dhivya P</span></h1>
+            <p>Passionate Junior React Developer based in Trichy.</p>
+            <div class="cta-group">
+                <button class="primary-btn">View Projects</button>
+                <button class="secondary-btn">Download CV</button>
             </div>
         </div>
-    </div>
+
+        <div class="three-d-container">
+            <div class="card-3d">
+                <div class="card-front">
+                    <h3>PSDigitie LLP</h3>
+                    <p>1+ Year Experience</p>
+                    <div class="tech-stack">
+                        <span>React.js</span>
+                        <span>Node.js</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="info-section">
+        <div class="grid">
+            <div class="info-box">
+                <h2>Experience</h2>
+                <p>Currently working at <strong>PSDigitie LLP, Trichy</strong>. I specialize in integrating APIs into frontend applications and building user-friendly interfaces.</p>
+            </div>
+            <div class="info-box">
+                <h2>Education</h2>
+                <p><strong>BCA:</strong> 2021 - 2024</p>
+                <p><strong>MCA:</strong> 2024 - 2026 (Pursuing - Irregular Mode)</p>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
