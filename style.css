@@ -86,10 +86,118 @@ nav {
     -webkit-text-fill-color: transparent;
 }
 
+/* --- 3D Flip Card Container --- */
 .hero-visual {
-    flex: 1;
+    perspective: 1000px;
+    /* Essential for 3D effect */
+}
+
+.flip-card {
+    width: 320px;
+    height: 380px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+/* The actual trigger: click/active state */
+.flip-card:active .flip-card-inner,
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+    border-radius: 30px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+/* Front Side */
+.flip-card-front {
+    background: transparent;
+}
+
+.click-hint {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: var(--primary);
+    opacity: 0.7;
+    animation: pulse 2s infinite;
+}
+
+/* Back Side */
+.flip-card-back {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.2));
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    color: white;
+    transform: rotateY(180deg);
+    padding: 20px;
+}
+
+.education-content i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.education-content h3 {
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.edu-item h4 {
+    color: var(--secondary);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.edu-item p {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.edu-item span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+hr {
+    width: 50%;
+    margin: 15px auto;
+    border: 0;
+    border-top: 1px solid var(--glass-border);
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
 }
 
 /* Image Styling */
@@ -335,9 +443,60 @@ nav {
     border: 1px solid var(--glass-border);
 }
 
+/* Styling for Skill Categories */
 .skill-category h4 {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: var(--primary);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Individual Skill Tag Styling */
+.skill-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Space between icon and text */
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+/* Icon specific coloring on hover */
+.skill-tag i {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    transition: 0.3s;
+}
+
+.skill-tag:hover {
+    border-color: var(--primary);
+    background: rgba(168, 85, 247, 0.1);
+    transform: translateY(-3px);
+}
+
+.skill-tag:hover i {
+    color: var(--primary);
+    /* Icon lights up on hover */
+}
+
+/* Special color for specific brand icons on hover */
+.skill-tag:hover .fa-react {
+    color: #61DAFB;
+}
+
+.skill-tag:hover .fa-js {
+    color: #F7DF1E;
+}
+
+.skill-tag:hover .fa-node-js {
+    color: #339933;
 }
 
 /* Responsive Adjustments */
