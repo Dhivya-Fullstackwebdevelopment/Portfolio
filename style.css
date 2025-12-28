@@ -708,3 +708,81 @@ footer p {
     color: var(--text-muted);
     font-size: 0.9rem;
 }
+
+/* --- Mobile Responsive Overrides --- */
+@media (max-width: 768px) {
+
+    /* 1. Fix Hero Section Layout */
+    .hero {
+        flex-direction: column-reverse;
+        /* Put image on top of text */
+        height: auto;
+        padding: 120px 5% 50px 5%;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+        /* Shrink large title for small screens */
+    }
+
+    /* 2. Center Buttons and Socials */
+    .btn-container,
+    .about-socials {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* 3. Resize the 3D Card for Mobile */
+    .flip-card {
+        width: 280px;
+        height: 350px;
+    }
+
+    .profile-frame {
+        width: 250px;
+        height: 250px;
+    }
+
+    /* 4. Navigation Menu adjustments */
+    nav {
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .nav-links a {
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 0.8rem;
+    }
+
+    /* 5. Stack Projects and Experience Cards */
+    .projects-list {
+        grid-template-columns: 1fr;
+        /* Single column */
+    }
+
+    .exp-card {
+        padding: 20px;
+    }
+
+    .exp-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* 6. Contact Section adjustments */
+    .email-link {
+        font-size: 1.2rem;
+        /* Prevent email from overflowing screen */
+    }
+}
