@@ -5,222 +5,804 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dhivya P | Full Stack Developer</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&display=swap"
-        rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #ec4899;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            /* Updated to be much brighter */
+            --text-muted: #cbd5e1; 
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- Text Visibility Overrides --- */
+        /* Override Bootstrap's text-muted which is too dark by default */
+        .text-muted {
+            color: #cbd5e1 !important; /* Slate-300 */
+        }
+        
+        /* Improve secondary text visibility */
+        .text-secondary {
+            color: #f472b6 !important; /* Lighter Pink to match theme */
+        }
+        
+        p {
+            color: #e2e8f0; /* Slate-200 for general paragraphs */
+        }
+
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+
+        /* --- Navbar Glassmorphism --- */
+        .navbar {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link {
+            color: #cbd5e1 !important; /* Brighter nav links */
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #fff !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background Blobs */
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.4;
+            animation: float 10s infinite ease-in-out;
+        }
+        .blob-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: var(--primary-color); }
+        .blob-2 { bottom: -10%; right: -10%; width: 400px; height: 400px; background: var(--secondary-color); }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #22d3ee 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .hero-btn-primary {
+            background: linear-gradient(90deg, var(--primary-color), #8b5cf6);
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hero-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+            color: white;
+        }
+
+        .hero-btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-left: 15px;
+            transition: all 0.3s;
+        }
+
+        .hero-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .social-icon {
+            font-size: 1.8rem;
+            color: #cbd5e1;
+            margin-right: 20px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-icon:hover {
+            color: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        /* --- Flip Card (Crucial Feature) --- */
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 420px;
+            perspective: 1000px;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .flip-card-front {
+            background: var(--card-bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .flip-card-back {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .profile-img-container {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            margin-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--card-bg);
+        }
+
+        .click-hint {
+            font-size: 0.8rem;
+            color: #cbd5e1;
+            margin-top: 15px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-5px);}
+            60% {transform: translateY(-3px);}
+        }
+
+        /* --- Section Styling --- */
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+
+        /* --- Experience Cards --- */
+        .exp-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .exp-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-color);
+        }
+
+        .exp-card:hover {
+            background: rgba(30, 41, 59, 1);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .company-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            background: white;
+            border-radius: 8px;
+            padding: 5px;
+            margin-right: 20px;
+        }
+
+        /* --- Skills --- */
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 25px;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 5px;
+            transition: background 0.2s;
+            color: #e2e8f0;
+        }
+
+        .skill-tag:hover {
+            background: rgba(99, 102, 241, 0.2);
+            color: white;
+        }
+
+        /* --- Projects --- */
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-card-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* --- Contact --- */
+        .contact-box {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .email-link {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
+            margin: 20px 0;
+        }
+        
+        .email-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #020617;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+    </style>
 </head>
 
-<body>
-    <nav>
-        <div>FULL STACK DEVELOPER</div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100">
 
-    <main class="hero" id="about">
-        <div class="hero-text">
-            <span class="name-highlight">DHIVYA P</span><br />
-            <h1>Building <span class="gradient-text">Scalable</span> Web & Mobile Apps</h1>
-            <p>I am a passionate Software Engineer at <strong>PS Digitise LLP</strong> with 1+ year of experience. I
-                create meaningful digital products that balance user needs and business goals.</p>
-            <div class="about-socials">
-                <a href="https://github.com/Dhivya-Fullstackwebdevelopment" target="_blank" title="GitHub"><i
-                        class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/dhivya-p-466529230/" target="_blank" title="LinkedIn"><i
-                        class="fa-brands fa-linkedin"></i></a>
-            </div>
-            <div class="btn-container">
-                <a href="Resume/DhivyaP_FullStackDeveloper.pdf" download class="main-btn">Download Resume</a>
-                <a href="#projects" class="sec-btn">View Projects</a>
-            </div>
-        </div>
-        <div class="hero-visual">
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <div class="profile-frame">
-                            <img src="Images/DhivyaP.jpg" alt="Dhivya P" class="profile-img">
-                        </div>
-                        <p class="click-hint">Click to see Education</p>
-                    </div>
-                    <div class="flip-card-back">
-                        <div class="education-content">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                            <h3>Education</h3>
-                            <div class="edu-item">
-                                <h4>BCA</h4>
-                                <p>Bishop Heber College, Trichy</p>
-                                <span>2021 - 2024</span>
-                            </div>
-                            <hr>
-                            <div class="edu-item">
-                                <h4>MCA</h4>
-                                <p>Gnanamani College of Technology, Namakkal</p>
-                                <span>2024 - 2026</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <section id="experience" class="work-experience">
-        <h2 class="section-title">Professional Experience</h2>
-        <div class="experience-container">
-            <div class="exp-card">
-                <div class="exp-header">
-                    <img src="Images/PSDlogo.jpg" alt="PS Digitise" class="company-logo">
-                    <div>
-                        <h3>PS Digitise LLP, Trichy</h3>
-                        <p class="role">Junior React Developer (Intern) | May 2024 – Aug 2024</p>
-                    </div>
-                </div>
-                <div class="intern-outcomes">
-                    <div class="outcome">
-                        <h4>Team Integration & API Mastery</h4>
-                        <p>Gained first-hand experience in team collaboration on the <strong>Vysyamala project</strong>.
-                            Played a key role in integrating APIs, which strengthened my technical and teamwork skills.
-                        </p>
-                    </div>
-                    <div class="outcome">
-                        <h4>Full-Stack Development (Job Portal)</h4>
-                        <p>Developed a sample job portal using <strong>React.js and Node.js</strong>. Built a custom
-                            chatbot integrated into the live Vysyamala project to enhance user interaction.</p>
-                    </div>
-                    <div class="outcome">
-                        <h4>Deployment & Version Control</h4>
-                        <p>Self-taught developer who transitioned into professional environments, mastering
-                            <strong>Git</strong> for version control and <strong>Vercel</strong> for live application
-                            deployment.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="work-experience">
-        <h2 class="section-title">Work Experience</h2>
-        <div class="experience-container">
-            <div class="exp-card">
-                <div class="exp-header">
-                    <img src="Images/PSDlogo.jpg" alt="PS Digitise" class="company-logo">
-                    <div>
-                        <h3>PS Digitise LLP, Trichy</h3>
-                        <p class="role">Junior React Developer • 2024 - Present</p>
-                    </div>
-                </div>
-                <ul class="impact-list">
-                    <li>Developed responsive React dashboards and integrated RESTful APIs.</li>
-                    <li>Collaborated on mobile app features using React Native and Expo.</li>
-                    <li>Optimized frontend performance, reducing load times by 20%.</li>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span style="color: var(--primary-color)">DHIVYA P
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <section id="skills" class="skills-section">
-        <h2 class="section-title">Technical Toolkit</h2>
-        <div class="skills-grid-container">
-            <div class="skill-category">
-                <h4><i class="fa-solid fa-code"></i> Frontend</h4>
-                <div class="skill-icons">
-                    <span class="skill-tag"><i class="fa-brands fa-react"></i> React.js</span>
-                    <span class="skill-tag"><i class="fa-solid fa-wind"></i> Tailwind CSS</span>
-                    <span class="skill-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+    <!-- Hero Section -->
+    <section id="about" class="hero-section">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Text Content -->
+                <div class="col-lg-7 mb-5 mb-lg-0" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="badge bg-secondary bg-opacity-10 text-secondary mb-3 px-3 py-2 rounded-pill border border-secondary border-opacity-25">
+                        <i class="fas fa-code me-2"></i> Full Stack Developer
+                    </div>
+                    <h1 class="display-3 fw-bold mb-3 lh-sm">
+                        Building <br>
+                        <span class="gradient-text">Scalable</span> Apps
+                    </h1>
+                    <p class="lead text-muted mb-4 pe-lg-5">
+                        I am a passionate Software Engineer at <strong>PS Digitise LLP</strong> with 1+ year of experience. 
+                        I create meaningful digital products that balance user needs and business goals.
+                    </p>
+                    
+                    <div class="d-flex align-items-center mb-5">
+                        <a href="https://github.com/Dhivya-Fullstackwebdevelopment" target="_blank" class="social-icon"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/dhivya-p-466529230/" target="_blank" class="social-icon"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="mailto:divya.p9842@gmail.com" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="Resume/DhivyaP_FullStackDeveloper.pdf" download class="hero-btn-primary text-decoration-none">
+                            <i class="fas fa-download me-2"></i> Download Resume
+                        </a>
+                        <a href="#projects" class="hero-btn-secondary text-decoration-none">
+                            View Projects
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="skill-category">
-                <h4><i class="fa-solid fa-mobile-screen-button"></i> Mobile</h4>
-                <div class="skill-icons">
-                    <span class="skill-tag"><i class="fa-brands fa-react"></i> React Native</span>
-                    <span class="skill-tag"><i class="fa-solid fa-bolt"></i> Expo</span>
-                </div>
-            </div>
+                <!-- Visual / Flip Card -->
+                <div class="col-lg-5" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            
+                            <!-- Front -->
+                            <div class="flip-card-front">
+                                <div class="profile-img-container">
+                                    <!-- USING PROVIDED IMAGE PATH + Fallback -->
+                                    <img src="Images/DhivyaP.jpg" 
+                                         onerror="this.src='https://ui-avatars.com/api/?name=Dhivya+P&background=random&size=256'" 
+                                         alt="Dhivya P" 
+                                         class="profile-img">
+                                </div>
+                                <h3 class="mb-1 fw-bold">Dhivya P</h3>
+                                <p class="text-info mb-3">Full Stack Developer</p>
+                                <div class="d-flex justify-content-center gap-2 mb-4">
+                                    <span class="badge bg-white bg-opacity-10 rounded-pill">React</span>
+                                    <span class="badge bg-white bg-opacity-10 rounded-pill">Node</span>
+                                    <span class="badge bg-white bg-opacity-10 rounded-pill">Mongo</span>
+                                </div>
+                                <p class="click-hint"><i class="fas fa-sync-alt me-2"></i>Click to see Education</p>
+                            </div>
 
-            <div class="skill-category">
-                <h4><i class="fa-solid fa-server"></i> Backend</h4>
-                <div class="skill-icons">
-                    <span class="skill-tag"><i class="fa-brands fa-node-js"></i> Node.js</span>
-                    <span class="skill-tag"><i class="fa-solid fa-database"></i> MongoDB</span>
-                    <span class="skill-tag"><i class="fa-solid fa-gears"></i> Express</span>
+                            <!-- Back -->
+                            <div class="flip-card-back text-start">
+                                <div class="text-center mb-4">
+                                    <i class="fas fa-graduation-cap fa-3x text-info mb-3"></i>
+                                    <h4>Education Timeline</h4>
+                                </div>
+                                
+                                <div class="border-start border-light ps-4 ms-2 position-relative mb-4">
+                                    <span class="position-absolute top-0 start-0 translate-middle bg-info rounded-circle" style="width: 12px; height: 12px;"></span>
+                                    <h5 class="mb-0">MCA</h5>
+                                    <p class="small text-white mb-0">Gnanamani College of Tech</p>
+                                    <small class="text-info">2024 - 2026</small>
+                                </div>
+
+                                <div class="border-start border-light ps-4 ms-2 position-relative">
+                                    <span class="position-absolute top-0 start-0 translate-middle bg-secondary rounded-circle" style="width: 12px; height: 12px;"></span>
+                                    <h5 class="mb-0">BCA</h5>
+                                    <p class="small text-white mb-0">Bishop Heber College</p>
+                                    <small class="text-secondary">2021 - 2024</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <section id="projects" class="projects-section">
-        <h2 class="section-title">Involved Projects</h2>
-        <div class="projects-list">
 
-            <div class="project-item">
-                <span class="project-tag">Frontend • Vite + React.js</span>
-                <h3>Vysyamala Web Ecosystem</h3>
-                <p>
-                    Developed comprehensive <strong>User and Admin panels</strong> using Vite and React.
-                    Focused on building a high-performance web interface with efficient state management,
-                    seamless API integration, and a dedicated dashboard for administrative control.
-                </p>
+    <!-- Experience Section -->
+    <section id="experience" class="section-padding">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Professional Experience</h2>
+
+            <!-- Job 1 -->
+            <div class="exp-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="d-flex flex-column flex-md-row align-items-start mb-4">
+                    <!-- USING PROVIDED LOGO PATH + Fallback -->
+                    <img src="Images/PSDlogo.jpg" 
+                         onerror="this.src='https://ui-avatars.com/api/?name=PS&background=fff&color=000&size=128'"
+                         alt="PS Digitise" 
+                         class="company-logo">
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between flex-wrap gap-2">
+                            <h3 class="h4 mb-1 text-white">PS Digitise LLP, Trichy</h3>
+                            <span class="badge bg-primary bg-opacity-25 text-primary border border-primary border-opacity-25 rounded-pill px-3 py-2">
+                                2024 - Present
+                            </span>
+                        </div>
+                        <p class="text-info fw-bold mb-0">Junior React Developer</p>
+                    </div>
+                </div>
+                <div class="ps-md-5 ms-md-4">
+                    <ul class="text-muted">
+                        <li class="mb-2">Developed responsive React dashboards and integrated RESTful APIs for seamless data flow.</li>
+                        <li class="mb-2">Collaborated on mobile app features using React Native and Expo, ensuring cross-platform compatibility.</li>
+                        <li class="mb-2">Optimized frontend performance, significantly reducing load times by <strong class="text-white">20%</strong>.</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="project-item">
-                <span class="project-tag">Frontend • Vite + React.js, Vercel</span>
-                <h3>Armjobs Portal</h3>
-                <p>Independently handled design and API integration. Maintained a well-structured codebase to improve
-                    development efficiency and successfully deployed the application via Git to Vercel.</p>
+            <!-- Internship -->
+            <div class="exp-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="d-flex flex-column flex-md-row align-items-start mb-4">
+                    <!-- USING PROVIDED LOGO PATH + Fallback -->
+                    <img src="Images/PSDlogo.jpg" 
+                         onerror="this.src='https://ui-avatars.com/api/?name=PS&background=fff&color=000&size=128'"
+                         alt="PS Digitise" 
+                         class="company-logo">
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between flex-wrap gap-2">
+                            <h3 class="h4 mb-1 text-white">PS Digitise LLP, Trichy</h3>
+                            <span class="badge bg-secondary bg-opacity-25 text-secondary border border-secondary border-opacity-25 rounded-pill px-3 py-2">
+                                May 2024 – Aug 2024
+                            </span>
+                        </div>
+                        <p class="text-secondary fw-bold mb-0">Junior React Developer (Intern)</p>
+                    </div>
+                </div>
+                <div class="ps-md-5 ms-md-4">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="p-3 rounded bg-dark border border-secondary border-opacity-25 h-100">
+                                <h6 class="text-white"><i class="fas fa-users text-secondary me-2"></i>Collaboration</h6>
+                                <p class="small text-muted mb-0">Integrated into the Vysyamala project team, mastering API integration.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 rounded bg-dark border border-secondary border-opacity-25 h-100">
+                                <h6 class="text-white"><i class="fas fa-laptop-code text-secondary me-2"></i>Full Stack</h6>
+                                <p class="small text-muted mb-0">Built a Job Portal (React/Node) and a custom chatbot feature.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 rounded bg-dark border border-secondary border-opacity-25 h-100">
+                                <h6 class="text-white"><i class="fas fa-code-branch text-secondary me-2"></i>DevOps</h6>
+                                <p class="small text-muted mb-0">Mastered Git version control and Vercel deployments.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="project-item">
-                <span class="project-tag">Frontend • Version Control</span>
-                <h3>MindfulBeauty</h3>
-                <p>Focused on clean code structure and version control using Git. Gained hands-on experience in live
-                    deployment on Vercel and cross-functional teamwork with senior support.</p>
-            </div>
-
-            <div class="project-item">
-                <span class="project-tag">Frontend • React Native</span>
-                <h3>Vysyamala Mobile App</h3>
-                <p>Developing a cross-platform mobile application using React Native, focusing on seamless user
-                    experience and real-time data handling.</p>
-            </div>
-            <div class="project-item">
-                <span class="project-tag">Backend • MongoDB</span>
-                <h3>Bus Tracking Application</h3>
-                <p>Designed and developed robust APIs using MongoDB to handle real-time location data and tracking
-                    logistics for transportation management.</p>
-            </div>
-
         </div>
-
     </section>
 
-    <section id="contact" class="contact-section">
-        <h2>Let's Connect</h2>
-        <!-- <p>I'm currently looking for new opportunities to build amazing things.</p> -->
-        <a href="mailto:dhivya.p@email.com" class="email-link">divya.p9842@gmail.com</a>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/dhivya-p-466529230/" target="_blank"
-                rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://github.com/Dhivya-Fullstackwebdevelopment" target="_blank"
-                rel="noopener noreferrer">GitHub</a>
-            <span class="location">📍 Salem, India</span>
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding bg-dark bg-opacity-50">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Technical Toolkit</h2>
+            <div class="row g-4">
+                
+                <!-- Frontend -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-card">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="rounded-circle bg-primary bg-opacity-25 p-3 text-primary me-3">
+                                <i class="fa-solid fa-code fa-lg"></i>
+                            </div>
+                            <h4 class="mb-0 text-white">Frontend</h4>
+                        </div>
+                        <div>
+                            <span class="skill-tag"><i class="fa-brands fa-react text-info"></i> React.js</span>
+                            <span class="skill-tag"><i class="fa-solid fa-wind text-info"></i> Tailwind</span>
+                            <span class="skill-tag"><i class="fa-brands fa-bootstrap text-primary"></i> Bootstrap</span>
+                            <span class="skill-tag"><i class="fa-brands fa-js text-warning"></i> JavaScript</span>
+                            <span class="skill-tag">Vite</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-card">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="rounded-circle bg-secondary bg-opacity-25 p-3 text-secondary me-3">
+                                <i class="fa-solid fa-mobile-screen-button fa-lg"></i>
+                            </div>
+                            <h4 class="mb-0 text-white">Mobile</h4>
+                        </div>
+                        <div>
+                            <span class="skill-tag"><i class="fa-brands fa-react text-info"></i> React Native</span>
+                            <span class="skill-tag"><i class="fa-solid fa-bolt text-warning"></i> Expo</span>
+                            <span class="skill-tag">Android Studio</span>
+                            <span class="skill-tag">Mobile UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="skill-card">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="rounded-circle bg-success bg-opacity-25 p-3 text-success me-3">
+                                <i class="fa-solid fa-server fa-lg"></i>
+                            </div>
+                            <h4 class="mb-0 text-white">Backend</h4>
+                        </div>
+                        <div>
+                            <span class="skill-tag"><i class="fa-brands fa-node-js text-success"></i> Node.js</span>
+                            <span class="skill-tag"><i class="fa-solid fa-database text-success"></i> MongoDB</span>
+                            <span class="skill-tag">Express.js</span>
+                            <span class="skill-tag">REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
-    <footer>
-        <p>© 2025 Dhivya P. • Built with React & Passion</p>
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
+            <div class="row g-4">
+                
+                <!-- P1 -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-card">
+                        <div style="height: 5px; background: linear-gradient(90deg, #22d3ee, #3b82f6);"></div>
+                        <div class="project-card-body">
+                            <span class="project-badge">Frontend • Vite + React</span>
+                            <h4 class="text-white mb-3">Vysyamala Ecosystem</h4>
+                            <p class="text-muted small mb-4">
+                                Developed comprehensive User and Admin panels using Vite and React. Focused on building a high-performance web interface with efficient state management.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- P2 -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="project-card">
+                        <div style="height: 5px; background: linear-gradient(90deg, #ec4899, #a855f7);"></div>
+                        <div class="project-card-body">
+                            <span class="project-badge">Full Stack • Portal</span>
+                            <h4 class="text-white mb-3">Armjobs Portal</h4>
+                            <p class="text-muted small mb-4">
+                                Independently handled design and API integration. Maintained a well-structured codebase and successfully deployed via Git to Vercel.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- P3 -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="project-card">
+                        <div style="height: 5px; background: linear-gradient(90deg, #a855f7, #6366f1);"></div>
+                        <div class="project-card-body">
+                            <span class="project-badge">Frontend • Version Control</span>
+                            <h4 class="text-white mb-3">MindfulBeauty</h4>
+                            <p class="text-muted small mb-4">
+                                Focused on clean code structure and version control using Git. Gained hands-on experience in live deployment and teamwork.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- P4 -->
+                 <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="project-card">
+                        <div style="height: 5px; background: linear-gradient(90deg, #f59e0b, #ef4444);"></div>
+                        <div class="project-card-body">
+                            <span class="project-badge">Mobile • React Native</span>
+                            <h4 class="text-white mb-3">Vysyamala Mobile</h4>
+                            <p class="text-muted small mb-4">
+                                Developing a cross-platform mobile application using React Native, focusing on seamless user experience and real-time data handling.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- P5 -->
+                 <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="project-card">
+                        <div style="height: 5px; background: linear-gradient(90deg, #10b981, #0ea5e9);"></div>
+                        <div class="project-card-body">
+                            <span class="project-badge">Backend • MongoDB</span>
+                            <h4 class="text-white mb-3">Bus Tracking App</h4>
+                            <p class="text-muted small mb-4">
+                                Designed and developed robust APIs using MongoDB to handle real-time location data and tracking logistics for transportation management.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container" data-aos="flip-up">
+            <div class="contact-box">
+                <h2 class="display-5 fw-bold text-white mb-4">Let's Connect</h2>
+                <p class="lead text-muted mb-4">I'm currently looking for new opportunities to build amazing things.</p>
+                
+                <a href="mailto:divya.p9842@gmail.com" class="email-link">
+                    divya.p9842@gmail.com
+                    <i class="fas fa-arrow-right ms-2" style="font-size: 1rem;"></i>
+                </a>
+
+                <div class="d-flex justify-content-center align-items-center gap-4 mt-4 text-muted">
+                    <span><i class="fas fa-map-marker-alt me-2 text-danger"></i>Salem, India</span>
+                    <span>|</span>
+                    <a href="https://www.linkedin.com/in/dhivya-p-466529230/" target="_blank" class="text-decoration-none text-muted hover-white">LinkedIn</a>
+                    <a href="https://github.com/Dhivya-Fullstackwebdevelopment" target="_blank" class="text-decoration-none text-muted hover-white">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center text-muted">
+        <div class="container">
+            <p class="mb-0">© 2025 Dhivya P. • Built with <i class="fab fa-react text-info mx-1"></i> & <i class="fab fa-bootstrap text-primary mx-1"></i></p>
+        </div>
     </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
-        const card = document.querySelector('.flip-card');
-        card.addEventListener('click', function () {
-            card.classList.toggle('flipped');
+        // Initialize Animate On Scroll
+        AOS.init({
+            once: true,
+            offset: 120,
+            duration: 800,
+            easing: 'ease-out-cubic',
         });
     </script>
 </body>
