@@ -6,16 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/jpeg" href="Images/DhivyaP.jpg">
     <title>Dhivya P | Full Stack Developer</title>
-    
+    <meta name="description"
+        content="Portfolio of Dhivya P, a Full Stack Developer specializing in React.js, Node.js, and Mobile App Development. Explore projects like Vysyamala and Armjobs.">
+    <meta name="keywords"
+        content="Full Stack Developer, React Developer, Dhivya P, Web Development Portfolio, Software Engineer Trichy, React Native Developer">
+
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dhivya-portfolio-iota-five.vercel.app/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dhivya-portfolio-iota-five.vercel.app/">
+    <meta property="og:title" content="Dhivya P | Full Stack Developer Portfolio">
+    <meta property="og:description"
+        content="Software Engineer at PS Digitise LLP specializing in React, Node.js, and Mobile Apps.">
+    <meta property="og:image" content="https://dhivya-portfolio-iota-five.vercel.app/Images/DhivyaP.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dhivya-fullstackwebdevelopment.github.io/">
+    <meta property="twitter:title" content="Dhivya P | Full Stack Developer Portfolio">
+    <meta property="twitter:description"
+        content="Software Engineer at PS Digitise LLP specializing in React, Node.js, and Mobile Apps.">
+    <meta property="twitter:image"
+        content="https://raw.githubusercontent.com/Dhivya-Fullstackwebdevelopment/YOUR_REPO_NAME/main/Images/DhivyaP.jpg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Dhivya P",
+      "jobTitle": "Full Stack Developer",
+      "url": "https://your-domain.com",
+      "sameAs": [
+        "https://github.com/Dhivya-Fullstackwebdevelopment",
+        "https://www.linkedin.com/in/dhivya-p-466529230/"
+      ],
+      "knowsAbout": ["React.js", "Node.js", "Full Stack Development", "React Native", "MongoDB"]
+    }
+    </script>
+
+    <link rel="icon" type="image/jpeg" href="Images/DhivyaP.jpg">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
+
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -27,7 +65,7 @@
             --card-bg: #1e293b;
             --text-main: #f8fafc;
             /* Updated to be much brighter */
-            --text-muted: #cbd5e1; 
+            --text-muted: #cbd5e1;
         }
 
         body {
@@ -40,29 +78,35 @@
         /* --- Text Visibility Overrides --- */
         /* Override Bootstrap's text-muted which is too dark by default */
         .text-muted {
-            color: #cbd5e1 !important; /* Slate-300 */
+            color: #cbd5e1 !important;
+            /* Slate-300 */
         }
-        
+
         /* Improve secondary text visibility */
         .text-secondary {
-            color: #f472b6 !important; /* Lighter Pink to match theme */
+            color: #f472b6 !important;
+            /* Lighter Pink to match theme */
         }
-        
+
         p {
-            color: #e2e8f0; /* Slate-200 for general paragraphs */
+            color: #e2e8f0;
+            /* Slate-200 for general paragraphs */
         }
 
         /* --- Custom Scrollbar --- */
         ::-webkit-scrollbar {
             width: 10px;
         }
+
         ::-webkit-scrollbar-track {
             background: var(--dark-bg);
         }
+
         ::-webkit-scrollbar-thumb {
             background: #334155;
             border-radius: 5px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: var(--primary-color);
         }
@@ -81,16 +125,18 @@
         }
 
         .nav-link {
-            color: #cbd5e1 !important; /* Brighter nav links */
+            color: #cbd5e1 !important;
+            /* Brighter nav links */
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
         }
 
-        .nav-link:hover, .nav-link.active {
+        .nav-link:hover,
+        .nav-link.active {
             color: #fff !important;
         }
-        
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -124,12 +170,33 @@
             opacity: 0.4;
             animation: float 10s infinite ease-in-out;
         }
-        .blob-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: var(--primary-color); }
-        .blob-2 { bottom: -10%; right: -10%; width: 400px; height: 400px; background: var(--secondary-color); }
+
+        .blob-1 {
+            top: -10%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: var(--primary-color);
+        }
+
+        .blob-2 {
+            bottom: -10%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: var(--secondary-color);
+        }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-30px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
         }
 
         .gradient-text {
@@ -206,7 +273,8 @@
             transform: rotateY(180deg);
         }
 
-        .flip-card-front, .flip-card-back {
+        .flip-card-front,
+        .flip-card-back {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -262,9 +330,22 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-5px);}
-            60% {transform: translateY(-3px);}
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-5px);
+            }
+
+            60% {
+                transform: translateY(-3px);
+            }
         }
 
         /* --- Section Styling --- */
@@ -301,7 +382,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .exp-card::before {
             content: '';
             position: absolute;
@@ -413,7 +494,7 @@
             display: inline-block;
             margin: 20px 0;
         }
-        
+
         .email-link:hover {
             color: var(--primary-color);
         }
@@ -424,7 +505,6 @@
             padding: 30px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
-
     </style>
 </head>
 
@@ -455,12 +535,13 @@
     <section id="about" class="hero-section">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
-        
+
         <div class="container">
             <div class="row align-items-center">
                 <!-- Text Content -->
                 <div class="col-lg-7 mb-5 mb-lg-0" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="badge bg-secondary bg-opacity-10 text-secondary mb-3 px-3 py-2 rounded-pill border border-secondary border-opacity-25">
+                    <div
+                        class="badge bg-secondary bg-opacity-10 text-secondary mb-3 px-3 py-2 rounded-pill border border-secondary border-opacity-25">
                         <i class="fas fa-code me-2"></i> Full Stack Developer
                     </div>
                     <h1 class="display-3 fw-bold mb-3 lh-sm">
@@ -468,18 +549,23 @@
                         <span class="gradient-text">Scalable</span> Apps
                     </h1>
                     <p class="lead text-muted mb-4 pe-lg-5">
-                        I am a passionate Software Engineer at <strong>PS Digitise LLP</strong> with 1+ year of experience. 
+                        I am a passionate Software Engineer at <strong>PS Digitise LLP</strong> with 1+ year of
+                        experience.
                         I create meaningful digital products that balance user needs and business goals.
                     </p>
-                    
+
                     <div class="d-flex align-items-center mb-5">
-                        <a href="https://github.com/Dhivya-Fullstackwebdevelopment" target="_blank" class="social-icon"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/dhivya-p-466529230/" target="_blank" class="social-icon"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="mailto:divya.p9842@gmail.com" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="https://github.com/Dhivya-Fullstackwebdevelopment" target="_blank"
+                            class="social-icon"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/dhivya-p-466529230/" target="_blank" class="social-icon"><i
+                                class="fa-brands fa-linkedin"></i></a>
+                        <a href="mailto:divya.p9842@gmail.com" class="social-icon"><i
+                                class="fa-solid fa-envelope"></i></a>
                     </div>
 
                     <div class="d-flex flex-wrap gap-3">
-                        <a href="Resume/DhivyaP_FullStackDeveloper.pdf" download class="hero-btn-primary text-decoration-none">
+                        <a href="Resume/DhivyaP_FullStackDeveloper.pdf" download
+                            class="hero-btn-primary text-decoration-none">
                             <i class="fas fa-download me-2"></i> Download Resume
                         </a>
                         <a href="#projects" class="hero-btn-secondary text-decoration-none">
@@ -492,15 +578,14 @@
                 <div class="col-lg-5" data-aos="fade-left" data-aos-duration="1000">
                     <div class="flip-card" onclick="this.classList.toggle('flipped')">
                         <div class="flip-card-inner">
-                            
+
                             <!-- Front -->
                             <div class="flip-card-front">
                                 <div class="profile-img-container">
                                     <!-- USING PROVIDED IMAGE PATH + Fallback -->
-                                    <img src="Images/DhivyaP.jpg" 
-                                         onerror="this.src='https://ui-avatars.com/api/?name=Dhivya+P&background=random&size=256'" 
-                                         alt="Dhivya P" 
-                                         class="profile-img">
+                                    <img src="Images/DhivyaP.jpg"
+                                        onerror="this.src='https://ui-avatars.com/api/?name=Dhivya+P&background=random&size=256'"
+                                        alt="Dhivya P" class="profile-img">
                                 </div>
                                 <h3 class="mb-1 fw-bold">Dhivya P</h3>
                                 <p class="text-info mb-3">Full Stack Developer</p>
@@ -518,16 +603,20 @@
                                     <i class="fas fa-graduation-cap fa-3x text-info mb-3"></i>
                                     <h4>Education Timeline</h4>
                                 </div>
-                                
+
                                 <div class="border-start border-light ps-4 ms-2 position-relative mb-4">
-                                    <span class="position-absolute top-0 start-0 translate-middle bg-info rounded-circle" style="width: 12px; height: 12px;"></span>
+                                    <span
+                                        class="position-absolute top-0 start-0 translate-middle bg-info rounded-circle"
+                                        style="width: 12px; height: 12px;"></span>
                                     <h5 class="mb-0">MCA</h5>
                                     <p class="small text-white mb-0">Gnanamani College of Tech</p>
                                     <small class="text-info">2024 - 2026</small>
                                 </div>
 
                                 <div class="border-start border-light ps-4 ms-2 position-relative">
-                                    <span class="position-absolute top-0 start-0 translate-middle bg-secondary rounded-circle" style="width: 12px; height: 12px;"></span>
+                                    <span
+                                        class="position-absolute top-0 start-0 translate-middle bg-secondary rounded-circle"
+                                        style="width: 12px; height: 12px;"></span>
                                     <h5 class="mb-0">BCA</h5>
                                     <p class="small text-white mb-0">Bishop Heber College</p>
                                     <small class="text-secondary">2021 - 2024</small>
@@ -550,14 +639,14 @@
             <div class="exp-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="d-flex flex-column flex-md-row align-items-start mb-4">
                     <!-- USING PROVIDED LOGO PATH + Fallback -->
-                    <img src="Images/PSDlogo.jpg" 
-                         onerror="this.src='https://ui-avatars.com/api/?name=PS&background=fff&color=000&size=128'"
-                         alt="PS Digitise" 
-                         class="company-logo">
+                    <img src="Images/PSDlogo.jpg"
+                        onerror="this.src='https://ui-avatars.com/api/?name=PS&background=fff&color=000&size=128'"
+                        alt="PS Digitise" class="company-logo">
                     <div class="flex-grow-1">
                         <div class="d-flex justify-content-between flex-wrap gap-2">
                             <h3 class="h4 mb-1 text-white">PS Digitise LLP, Trichy</h3>
-                            <span class="badge bg-primary bg-opacity-25 text-primary border border-primary border-opacity-25 rounded-pill px-3 py-2">
+                            <span
+                                class="badge bg-primary bg-opacity-25 text-primary border border-primary border-opacity-25 rounded-pill px-3 py-2">
                                 Sep 2024 - Present
                             </span>
                         </div>
@@ -566,9 +655,12 @@
                 </div>
                 <div class="ps-md-5 ms-md-4">
                     <ul class="text-muted">
-                        <li class="mb-2">Developed responsive React dashboards and integrated RESTful APIs for seamless data flow.</li>
-                        <li class="mb-2">Collaborated on mobile app features using React Native and Expo, ensuring cross-platform compatibility.</li>
-                        <li class="mb-2">Optimized frontend performance, significantly reducing load times by <strong class="text-white">20%</strong>.</li>
+                        <li class="mb-2">Developed responsive React dashboards and integrated RESTful APIs for seamless
+                            data flow.</li>
+                        <li class="mb-2">Collaborated on mobile app features using React Native and Expo, ensuring
+                            cross-platform compatibility.</li>
+                        <li class="mb-2">Optimized frontend performance, significantly reducing load times by <strong
+                                class="text-white">20%</strong>.</li>
                     </ul>
                 </div>
             </div>
@@ -577,14 +669,14 @@
             <div class="exp-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="d-flex flex-column flex-md-row align-items-start mb-4">
                     <!-- USING PROVIDED LOGO PATH + Fallback -->
-                    <img src="Images/PSDlogo.jpg" 
-                         onerror="this.src='https://ui-avatars.com/api/?name=PS&background=fff&color=000&size=128'"
-                         alt="PS Digitise" 
-                         class="company-logo">
+                    <img src="Images/PSDlogo.jpg"
+                        onerror="this.src='https://ui-avatars.com/api/?name=PS&background=fff&color=000&size=128'"
+                        alt="PS Digitise" class="company-logo">
                     <div class="flex-grow-1">
                         <div class="d-flex justify-content-between flex-wrap gap-2">
                             <h3 class="h4 mb-1 text-white">PS Digitise LLP, Trichy</h3>
-                            <span class="badge bg-secondary bg-opacity-25 text-secondary border border-secondary border-opacity-25 rounded-pill px-3 py-2">
+                            <span
+                                class="badge bg-secondary bg-opacity-25 text-secondary border border-secondary border-opacity-25 rounded-pill px-3 py-2">
                                 May 2024 – Aug 2024
                             </span>
                         </div>
@@ -595,20 +687,26 @@
                     <div class="row g-4">
                         <div class="col-md-4">
                             <div class="p-3 rounded bg-dark border border-secondary border-opacity-25 h-100">
-                                <h6 class="text-white"><i class="fas fa-users text-secondary me-2"></i>Collaboration</h6>
-                                <p class="small text-muted mb-0">Integrated into the Vysyamala project team, mastering API integration.</p>
+                                <h6 class="text-white"><i class="fas fa-users text-secondary me-2"></i>Collaboration
+                                </h6>
+                                <p class="small text-muted mb-0">Integrated into the Vysyamala project team, mastering
+                                    API integration.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="p-3 rounded bg-dark border border-secondary border-opacity-25 h-100">
-                                <h6 class="text-white"><i class="fas fa-laptop-code text-secondary me-2"></i>Full Stack</h6>
-                                <p class="small text-muted mb-0">Built a Job Portal (React/Node) and a custom chatbot feature.</p>
+                                <h6 class="text-white"><i class="fas fa-laptop-code text-secondary me-2"></i>Full Stack
+                                </h6>
+                                <p class="small text-muted mb-0">Built a Job Portal (React/Node) and a custom chatbot
+                                    feature.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="p-3 rounded bg-dark border border-secondary border-opacity-25 h-100">
-                                <h6 class="text-white"><i class="fas fa-code-branch text-secondary me-2"></i>Deployment & Version Control</h6>
-                                <p class="small text-muted mb-0">Mastered Git version control and Vercel deployments.</p>
+                                <h6 class="text-white"><i class="fas fa-code-branch text-secondary me-2"></i>Deployment
+                                    & Version Control</h6>
+                                <p class="small text-muted mb-0">Mastered Git version control and Vercel deployments.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -622,7 +720,7 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Technical Toolkit</h2>
             <div class="row g-4">
-                
+
                 <!-- Frontend -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="skill-card">
@@ -687,7 +785,7 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
             <div class="row g-4">
-                
+
                 <!-- P1 -->
                 <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
                     <div class="project-card">
@@ -696,7 +794,8 @@
                             <span class="project-badge">Frontend • Vite + React</span>
                             <h4 class="text-white mb-3">Vysyamala Ecosystem</h4>
                             <p class="text-muted small mb-4">
-                                Developed comprehensive User and Admin panels using Vite and React. Focused on building a high-performance web interface with efficient state management.
+                                Developed comprehensive User and Admin panels using Vite and React. Focused on building
+                                a high-performance web interface with efficient state management.
                             </p>
                         </div>
                     </div>
@@ -710,7 +809,8 @@
                             <span class="project-badge">Full Stack • Portal</span>
                             <h4 class="text-white mb-3">Armjobs Portal</h4>
                             <p class="text-muted small mb-4">
-                                Independently handled design and API integration. Maintained a well-structured codebase and successfully deployed via Git to Vercel.
+                                Independently handled design and API integration. Maintained a well-structured codebase
+                                and successfully deployed via Git to Vercel.
                             </p>
                         </div>
                     </div>
@@ -724,35 +824,38 @@
                             <span class="project-badge">Frontend • Version Control</span>
                             <h4 class="text-white mb-3">MindfulBeauty</h4>
                             <p class="text-muted small mb-4">
-                                Focused on clean code structure and version control using Git. Gained hands-on experience in live deployment and teamwork.
+                                Focused on clean code structure and version control using Git. Gained hands-on
+                                experience in live deployment and teamwork.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                 <!-- P4 -->
-                 <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                <!-- P4 -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
                     <div class="project-card">
                         <div style="height: 5px; background: linear-gradient(90deg, #f59e0b, #ef4444);"></div>
                         <div class="project-card-body">
                             <span class="project-badge">Mobile • React Native</span>
                             <h4 class="text-white mb-3">Vysyamala Mobile</h4>
                             <p class="text-muted small mb-4">
-                                Developing a cross-platform mobile application using React Native, focusing on seamless user experience and real-time data handling.
+                                Developing a cross-platform mobile application using React Native, focusing on seamless
+                                user experience and real-time data handling.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                 <!-- P5 -->
-                 <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="500">
+                <!-- P5 -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="500">
                     <div class="project-card">
                         <div style="height: 5px; background: linear-gradient(90deg, #10b981, #0ea5e9);"></div>
                         <div class="project-card-body">
                             <span class="project-badge">Backend • MongoDB</span>
                             <h4 class="text-white mb-3">Bus Tracking App</h4>
                             <p class="text-muted small mb-4">
-                                Designed and developed robust APIs using MongoDB to handle real-time location data and tracking logistics for transportation management.
+                                Designed and developed robust APIs using MongoDB to handle real-time location data and
+                                tracking logistics for transportation management.
                             </p>
                         </div>
                     </div>
@@ -768,7 +871,7 @@
             <div class="contact-box">
                 <h2 class="display-5 fw-bold text-white mb-4">Let's Connect</h2>
                 <p class="lead text-muted mb-4">I'm currently looking for new opportunities to build amazing things.</p>
-                
+
                 <a href="mailto:divya.p9842@gmail.com" class="email-link">
                     divya.p9842@gmail.com
                     <i class="fas fa-arrow-right ms-2" style="font-size: 1rem;"></i>
@@ -777,8 +880,10 @@
                 <div class="d-flex justify-content-center align-items-center gap-4 mt-4 text-muted">
                     <span><i class="fas fa-map-marker-alt me-2 text-danger"></i>Salem, India</span>
                     <span>|</span>
-                    <a href="https://www.linkedin.com/in/dhivya-p-466529230/" target="_blank" class="text-decoration-none text-muted hover-white">LinkedIn</a>
-                    <a href="https://github.com/Dhivya-Fullstackwebdevelopment" target="_blank" class="text-decoration-none text-muted hover-white">GitHub</a>
+                    <a href="https://www.linkedin.com/in/dhivya-p-466529230/" target="_blank"
+                        class="text-decoration-none text-muted hover-white">LinkedIn</a>
+                    <a href="https://github.com/Dhivya-Fullstackwebdevelopment" target="_blank"
+                        class="text-decoration-none text-muted hover-white">GitHub</a>
                 </div>
             </div>
         </div>
@@ -787,13 +892,14 @@
     <!-- Footer -->
     <footer class="text-center text-muted">
         <div class="container">
-            <p class="mb-0">© 2025 Dhivya P. • Built with <i class="fab fa-react text-info mx-1"></i> & <i class="fab fa-bootstrap text-primary mx-1"></i></p>
+            <p class="mb-0">© 2025 Dhivya P. • Built with <i class="fab fa-react text-info mx-1"></i> & <i
+                    class="fab fa-bootstrap text-primary mx-1"></i></p>
         </div>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
