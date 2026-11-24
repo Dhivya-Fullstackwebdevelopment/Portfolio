@@ -648,7 +648,7 @@
                             <h3 class="h4 mb-1 text-white">PS Digitise LLP, Trichy</h3>
                             <span
                                 class="badge bg-primary bg-opacity-25 text-primary border border-primary border-opacity-25 rounded-pill px-3 py-2">
-                                1+ Year Experience
+                                2+ Year Experience
                             </span>
                             <span
                                 class="badge bg-primary bg-opacity-25 text-primary border border-primary border-opacity-25 rounded-pill px-3 py-2">
@@ -664,7 +664,8 @@
                             data flow.</li>
                         <li class="mb-2">Collaborated on mobile app features using React Native and Expo, ensuring
                             cross-platform compatibility.</li>
-                        <li class="mb-2">Improved frontend performance and user experience through code optimization and best practices.</li>
+                        <li class="mb-2">Improved frontend performance and user experience through code optimization and
+                            best practices.</li>
                     </ul>
                 </div>
             </div>
@@ -896,12 +897,9 @@
     <!-- Footer -->
     <footer class="text-center text-muted">
         <div class="container">
-                   <p className="mb-0">
-            © {new Date().getFullYear()} Dhivya P. • Built with
-            <i className="fab fa-react text-info mx-1"></i> &
-            <i className="fab fa-bootstrap text-primary mx-1"></i>
-        </p>
-
+            <p class="mb-0">
+                © <span id="currentYear"></span> Dhivya P.
+            </p>
         </div>
     </footer>
 
@@ -912,6 +910,10 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
+        // Automatically update copyright year
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+
         // Initialize Animate On Scroll
         AOS.init({
             once: true,
